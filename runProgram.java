@@ -18,8 +18,12 @@ public class runProgram extends JFrame{
                    loginFormBottomPadding, 
                    loginFormLeftPadding, 
                    loginFormRightPadding,
-                   mainContentPanel;
-    private JLabel title;
+                   mainContentPanel,
+                   textBackgroundPanel;
+
+    private JLabel title,
+                   actionTextLabel;
+
     private JTextField usernameTextField;
     private JPasswordField passwordField;
     private JButton loginButton,
@@ -159,6 +163,19 @@ public class runProgram extends JFrame{
         // _________________^^^ EXIT BUTTON ^^^_________________
 
 
+        // ____________________ ACTION TEXT AND BACKGROUND ____________________
+        textBackgroundPanel = new JPanel();
+        textBackgroundPanel.setBounds(0, 3, 309, 44);
+        textBackgroundPanel.setPreferredSize(new Dimension(309, 44));
+        textBackgroundPanel.setBackground(new Color(0x274D60));
+
+        actionTextLabel = new JLabel();
+        actionTextLabel.setFont(new Font("Arial", Font.PLAIN, 25));
+        actionTextLabel.setForeground(Color.WHITE);
+        textBackgroundPanel.add(actionTextLabel);
+        // _________________^^^ ACTION TEXT AND BACKGROUND ^^^_________________
+
+
         // ____________________ MAIN CONTENT PANEL ____________________
         // Magbutang bago panel para ma change ang layout sa mga shit
         mainContentPanel = new JPanel();
@@ -166,7 +183,7 @@ public class runProgram extends JFrame{
         mainContentPanel.setBackground(backgroundPanel.getBackground());
         mainContentPanel.setLayout(null);
         // _________________^^^ MAIN CONTENT PANEL ^^^_________________
-        
+
 
         add(topPanel, BorderLayout.NORTH);
         add(backgroundPanel, BorderLayout.CENTER);
@@ -178,16 +195,12 @@ public class runProgram extends JFrame{
     // ========================= PRESELECT WINDOW =========================  
     public void runPreSelect(UserAccount useraccount){
         backgroundPanel.removeAll();
+        // change ang sulod sa setText() according action na buhaton, basta sunda ang sa figma nga design.
+        // kani man tung rectangle nga naay text sa top left
+        // ____________________ ACTION TEXT ____________________
+        actionTextLabel.setText("Choose Transaction");
+        // _________________^^^ ACTION TEXT ^^^_________________
 
-        JPanel textBackgroundPanel = new JPanel();
-        textBackgroundPanel.setBounds(0, 3, 309, 44);
-        textBackgroundPanel.setPreferredSize(new Dimension(309, 44));
-        textBackgroundPanel.setBackground(new Color(0x274D60));
-
-        JLabel actionTextLabel = new JLabel("Choose Transaction");
-        actionTextLabel.setFont(new Font("Arial", Font.PLAIN, 25));
-        actionTextLabel.setForeground(Color.WHITE);
-        textBackgroundPanel.add(actionTextLabel);
 
         JButton debitButton = new JButton("Debit");
         debitButton.setBounds(130, 110, debit_credit_button_size.width, debit_credit_button_size.height);
@@ -196,8 +209,7 @@ public class runProgram extends JFrame{
         debitButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                // TODO Auto-generated method stub
-                
+                runDebitSelection(useraccount);
             }
         });
 
@@ -208,8 +220,7 @@ public class runProgram extends JFrame{
         creditButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                // TODO Auto-generated method stub
-                
+                runCreditSelection(useraccount);
             }
         });
 
@@ -227,9 +238,9 @@ public class runProgram extends JFrame{
         // add tanan NEW COMPONENTS sa MAIN CONTENT PANEL para ma kita sa bagong window
         // _____________________ NEW COMPOENENTS _____________________
         mainContentPanel.add(textBackgroundPanel);
+        mainContentPanel.add(exitButton);
         mainContentPanel.add(debitButton);
         mainContentPanel.add(creditButton);
-        mainContentPanel.add(exitButton);
         // __________________^^^ NEW COMPOENENTS ^^^__________________
 
         backgroundPanel.add(mainContentPanel);
@@ -241,6 +252,15 @@ public class runProgram extends JFrame{
     // ========================= CREDIT SELECTION WINDOW =====================
     public void runCreditSelection(UserAccount useraccount){
         backgroundPanel.removeAll();
+        mainContentPanel.removeAll();
+        
+        // ____________________ ACTION TEXT ____________________
+        // Set setText()
+        // actionTextLabel.setText();
+        // _________________^^^ ACTION TEXT ^^^_________________
+
+        JButton button = new JButton("TEST BUTTON");
+        button.setBounds(130, 110, debit_credit_button_size.width, debit_credit_button_size.height);
 
 
         // ____________________ EXIT BUTTON LOGIC ____________________
@@ -255,7 +275,8 @@ public class runProgram extends JFrame{
 
         // add tanan NEW COMPONENTS sa MAIN CONTENT PANEL para ma kita sa bagong window
         // _____________________ NEW COMPOENENTS _____________________
-        
+        mainContentPanel.add(button);
+        mainContentPanel.add(textBackgroundPanel);
         mainContentPanel.add(exitButton);
         // __________________^^^ NEW COMPOENENTS ^^^__________________
 
@@ -268,7 +289,12 @@ public class runProgram extends JFrame{
     // ========================= DEBIT SELECTION WINDOW =====================
     public void runDebitSelection(UserAccount useraccount){
         backgroundPanel.removeAll();
-
+        mainContentPanel.removeAll();
+        
+        // ____________________ ACTION TEXT ____________________
+        // Set setText()
+        // actionTextLabel.setText();
+        // _________________^^^ ACTION TEXT ^^^_________________
 
         // ____________________ EXIT BUTTON LOGIC ____________________
         exitButton.addActionListener(new ActionListener() {
@@ -282,7 +308,7 @@ public class runProgram extends JFrame{
 
         // add tanan NEW COMPONENTS sa MAIN CONTENT PANEL para ma kita sa bagong window
         // _____________________ NEW COMPOENENTS _____________________
-        
+        mainContentPanel.add(textBackgroundPanel);
         mainContentPanel.add(exitButton);
         // __________________^^^ NEW COMPOENENTS ^^^__________________
 
@@ -295,7 +321,12 @@ public class runProgram extends JFrame{
     // ========================= WITHDRAW WINDOW =====================
     public void runWithdraw (UserAccount useraccount){
         backgroundPanel.removeAll();
-
+        mainContentPanel.removeAll();
+        
+        // ____________________ ACTION TEXT ____________________
+        // Set setText()
+        // actionTextLabel.setText();
+        // _________________^^^ ACTION TEXT ^^^_________________
 
         // ____________________ EXIT BUTTON LOGIC ____________________
         exitButton.addActionListener(new ActionListener() {
@@ -309,7 +340,7 @@ public class runProgram extends JFrame{
 
         // add tanan NEW COMPONENTS sa MAIN CONTENT PANEL para ma kita sa bagong window
         // _____________________ NEW COMPOENENTS _____________________
-        
+        mainContentPanel.add(textBackgroundPanel);
         mainContentPanel.add(exitButton);
         // __________________^^^ NEW COMPOENENTS ^^^__________________
 
@@ -322,7 +353,12 @@ public class runProgram extends JFrame{
     // ========================= PAYMENT WINDOW =====================
     public void runPayement(UserAccount useraccount){
         backgroundPanel.removeAll();
-
+        mainContentPanel.removeAll();
+        
+        // ____________________ ACTION TEXT ____________________
+        // Set setText()
+        // actionTextLabel.setText();
+        // _________________^^^ ACTION TEXT ^^^_________________
 
         // ____________________ EXIT BUTTON LOGIC ____________________
         exitButton.addActionListener(new ActionListener() {
@@ -336,7 +372,7 @@ public class runProgram extends JFrame{
 
         // add tanan NEW COMPONENTS sa MAIN CONTENT PANEL para ma kita sa bagong window
         // _____________________ NEW COMPOENENTS _____________________
-        
+        mainContentPanel.add(textBackgroundPanel);
         mainContentPanel.add(exitButton);
         // __________________^^^ NEW COMPOENENTS ^^^__________________
 
@@ -349,7 +385,12 @@ public class runProgram extends JFrame{
     // ========================= DEPOSIT WINDOW =====================
     public void runDeposit(UserAccount useraccount){
         backgroundPanel.removeAll();
-
+        mainContentPanel.removeAll();
+        
+        // ____________________ ACTION TEXT ____________________
+        // Set setText()
+        // actionTextLabel.setText();
+        // _________________^^^ ACTION TEXT ^^^_________________
 
         // ____________________ EXIT BUTTON LOGIC ____________________
         exitButton.addActionListener(new ActionListener() {
@@ -363,7 +404,7 @@ public class runProgram extends JFrame{
 
         // add tanan NEW COMPONENTS sa MAIN CONTENT PANEL para ma kita sa bagong window
         // _____________________ NEW COMPOENENTS _____________________
-        
+        mainContentPanel.add(textBackgroundPanel);
         mainContentPanel.add(exitButton);
         // __________________^^^ NEW COMPOENENTS ^^^__________________
 
@@ -376,7 +417,12 @@ public class runProgram extends JFrame{
     // ========================= TRANSFER WINDOW =====================
     public void runTransfer(UserAccount useraccount){
         backgroundPanel.removeAll();
-
+        mainContentPanel.removeAll();
+        
+        // ____________________ ACTION TEXT ____________________
+        // Set setText()
+        // actionTextLabel.setText();
+        // _________________^^^ ACTION TEXT ^^^_________________
 
         // ____________________ EXIT BUTTON LOGIC ____________________
         exitButton.addActionListener(new ActionListener() {
@@ -390,7 +436,7 @@ public class runProgram extends JFrame{
 
         // add tanan NEW COMPONENTS sa MAIN CONTENT PANEL para ma kita sa bagong window
         // _____________________ NEW COMPOENENTS _____________________
-        
+        mainContentPanel.add(textBackgroundPanel);
         mainContentPanel.add(exitButton);
         // __________________^^^ NEW COMPOENENTS ^^^__________________
 
@@ -403,7 +449,12 @@ public class runProgram extends JFrame{
     // ========================= BALANCE WINDOW =====================
     public void runBalace (UserAccount useraccount){
         backgroundPanel.removeAll();
-
+        mainContentPanel.removeAll();
+        
+        // ____________________ ACTION TEXT ____________________
+        // Set setText()
+        // actionTextLabel.setText();
+        // _________________^^^ ACTION TEXT ^^^_________________
 
         // ____________________ EXIT BUTTON LOGIC ____________________
         exitButton.addActionListener(new ActionListener() {
@@ -417,7 +468,7 @@ public class runProgram extends JFrame{
 
         // add tanan NEW COMPONENTS sa MAIN CONTENT PANEL para ma kita sa bagong window
         // _____________________ NEW COMPOENENTS _____________________
-        
+        mainContentPanel.add(textBackgroundPanel);
         mainContentPanel.add(exitButton);
         // __________________^^^ NEW COMPOENENTS ^^^__________________
 
