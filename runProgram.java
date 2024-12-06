@@ -160,6 +160,12 @@ public class runProgram extends JFrame{
         exitButton.setBounds(500, 250, exit_button_size.width, exit_button_size.height);
         exitButton.setFont(new Font("Arial", Font.PLAIN, 20));
         exitButton.setBackground(Color.WHITE);
+        exitButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.exit(0);
+            }
+        });
         // _________________^^^ EXIT BUTTON ^^^_________________
 
 
@@ -225,16 +231,6 @@ public class runProgram extends JFrame{
         });
 
 
-        // ____________________ EXIT BUTTON LOGIC ____________________
-        exitButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                // TO ADD
-            }
-        });
-        // _________________^^^ EXIT BUTTON LOGIC ^^^_________________
-
-
         // add tanan NEW COMPONENTS sa MAIN CONTENT PANEL para ma kita sa bagong window
         // _____________________ NEW COMPOENENTS _____________________
         mainContentPanel.add(textBackgroundPanel);
@@ -263,16 +259,6 @@ public class runProgram extends JFrame{
         button.setBounds(130, 110, debit_credit_button_size.width, debit_credit_button_size.height);
 
 
-        // ____________________ EXIT BUTTON LOGIC ____________________
-        exitButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                // TO ADD
-            }
-        });
-        // _________________^^^ EXIT BUTTON LOGIC ^^^_________________
-
-
         // add tanan NEW COMPONENTS sa MAIN CONTENT PANEL para ma kita sa bagong window
         // _____________________ NEW COMPOENENTS _____________________
         mainContentPanel.add(button);
@@ -295,15 +281,6 @@ public class runProgram extends JFrame{
         // Set setText()
         // actionTextLabel.setText();
         // _________________^^^ ACTION TEXT ^^^_________________
-
-        // ____________________ EXIT BUTTON LOGIC ____________________
-        exitButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                // TO ADD
-            }
-        });
-        // _________________^^^ EXIT BUTTON LOGIC ^^^_________________
 
 
         // add tanan NEW COMPONENTS sa MAIN CONTENT PANEL para ma kita sa bagong window
@@ -328,15 +305,6 @@ public class runProgram extends JFrame{
         // actionTextLabel.setText();
         // _________________^^^ ACTION TEXT ^^^_________________
 
-        // ____________________ EXIT BUTTON LOGIC ____________________
-        exitButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                // TO ADD
-            }
-        });
-        // _________________^^^ EXIT BUTTON LOGIC ^^^_________________
-
 
         // add tanan NEW COMPONENTS sa MAIN CONTENT PANEL para ma kita sa bagong window
         // _____________________ NEW COMPOENENTS _____________________
@@ -359,15 +327,6 @@ public class runProgram extends JFrame{
         // Set setText()
         // actionTextLabel.setText();
         // _________________^^^ ACTION TEXT ^^^_________________
-
-        // ____________________ EXIT BUTTON LOGIC ____________________
-        exitButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                // TO ADD
-            }
-        });
-        // _________________^^^ EXIT BUTTON LOGIC ^^^_________________
 
 
         // add tanan NEW COMPONENTS sa MAIN CONTENT PANEL para ma kita sa bagong window
@@ -392,15 +351,6 @@ public class runProgram extends JFrame{
         // actionTextLabel.setText();
         // _________________^^^ ACTION TEXT ^^^_________________
 
-        // ____________________ EXIT BUTTON LOGIC ____________________
-        exitButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                // TO ADD
-            }
-        });
-        // _________________^^^ EXIT BUTTON LOGIC ^^^_________________
-
 
         // add tanan NEW COMPONENTS sa MAIN CONTENT PANEL para ma kita sa bagong window
         // _____________________ NEW COMPOENENTS _____________________
@@ -424,15 +374,6 @@ public class runProgram extends JFrame{
         // actionTextLabel.setText();
         // _________________^^^ ACTION TEXT ^^^_________________
 
-        // ____________________ EXIT BUTTON LOGIC ____________________
-        exitButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                // TO ADD
-            }
-        });
-        // _________________^^^ EXIT BUTTON LOGIC ^^^_________________
-
 
         // add tanan NEW COMPONENTS sa MAIN CONTENT PANEL para ma kita sa bagong window
         // _____________________ NEW COMPOENENTS _____________________
@@ -455,15 +396,6 @@ public class runProgram extends JFrame{
         // Set setText()
         // actionTextLabel.setText();
         // _________________^^^ ACTION TEXT ^^^_________________
-
-        // ____________________ EXIT BUTTON LOGIC ____________________
-        exitButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                // TO ADD
-            }
-        });
-        // _________________^^^ EXIT BUTTON LOGIC ^^^_________________
 
 
         // add tanan NEW COMPONENTS sa MAIN CONTENT PANEL para ma kita sa bagong window
