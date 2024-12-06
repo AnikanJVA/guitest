@@ -37,7 +37,7 @@ public class Balance{
         double currentBalance = 0;
 
         for (Account account : accountList) {
-            if(account.getType() == 0){
+            if(account.getType().equals("d")){
                 currentBalance = account.getBalance() + allAmountDeposit(account.getAccountNum());
                 currentBalance -= allAmountWithdraw(account.getAccountNum());
                 account.setBalance(currentBalance);
