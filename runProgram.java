@@ -1,12 +1,9 @@
 import javax.swing.*;
-import javax.swing.border.Border;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 
 public class runProgram extends JFrame{
@@ -36,7 +33,6 @@ public class runProgram extends JFrame{
     final Dimension debit_credit_button_size = new Dimension(350, 42);
     final Dimension exit_button_size = new Dimension(100, 40);
 
-
     // ========================= LOGIN WINDOW =====================
     public runProgram(){
         setTitle("Banking System");
@@ -61,8 +57,8 @@ public class runProgram extends JFrame{
         loginFormPanel.setLayout(null);
 
         title = new JLabel("Banking System");
-        title.setBounds(45, 15, 267, 30);
-        title.setFont(new Font("Arial", Font.PLAIN, 30));
+        title.setBounds(40, 10, 640, 50);
+        title.setFont(new Font("Arial", Font.BOLD, 30));
         loginFormPanel.add(title);
 
         usernameTextField = new JTextField("Username");
@@ -159,13 +155,15 @@ public class runProgram extends JFrame{
         exitButton = new JButton("Exit");
         exitButton.setBounds(500, 250, exit_button_size.width, exit_button_size.height);
         exitButton.setFont(new Font("Arial", Font.PLAIN, 20));
-        exitButton.setBackground(Color.WHITE);
+        exitButton.setForeground(Color.WHITE);
+        exitButton.setBackground(new Color(0x032F30));
         exitButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 System.exit(0);
             }
         });
+        
         // _________________^^^ EXIT BUTTON ^^^_________________
 
 
@@ -278,15 +276,73 @@ public class runProgram extends JFrame{
         mainContentPanel.removeAll();
         
         // ____________________ ACTION TEXT ____________________
-        // Set setText()
-        // actionTextLabel.setText();
+        actionTextLabel.setText("Debit");
         // _________________^^^ ACTION TEXT ^^^_________________
 
+        JLabel accountNumberLabel = new JLabel("Account number: " + useraccount.getDebitAccountNum());
+        accountNumberLabel.setBounds(actionTextLabel.getX(), actionTextLabel.getY() + 60, 250, 30);
+        accountNumberLabel.setFont(new Font("Arial", Font.PLAIN, 20));
+        accountNumberLabel.setForeground(Color.WHITE);
+
+        JPanel buttonGridPanel = new JPanel();
+        buttonGridPanel.setOpaque(false);
+        buttonGridPanel.setBounds(30, 110, 560, 107);
+        buttonGridPanel.setLayout(new GridLayout(2, 2, 10, 10));
+
+        JButton withdrawButton = new JButton("Withdraw");
+        withdrawButton.setFont(new Font("Arial", Font.PLAIN, 20));
+        withdrawButton.setForeground(Color.BLACK);
+        withdrawButton.setBackground(Color.WHITE);
+        withdrawButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                runWithdraw(useraccount);
+            }
+        });
+        buttonGridPanel.add(withdrawButton);
+
+        JButton depositButton = new JButton("Deposit");
+        depositButton.setFont(new Font("Arial", Font.PLAIN, 20));
+        depositButton.setForeground(Color.BLACK);
+        depositButton.setBackground(Color.WHITE);
+        depositButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                runDeposit(useraccount);
+            }
+        });
+        buttonGridPanel.add(depositButton);
+
+        JButton transferButton = new JButton("Transfer");
+        transferButton.setFont(new Font("Arial", Font.PLAIN, 20));
+        transferButton.setForeground(Color.BLACK);
+        transferButton.setBackground(Color.WHITE);
+        transferButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                runTransfer(useraccount);
+            }
+        });
+        buttonGridPanel.add(transferButton);
+
+        JButton showBalanceButton = new JButton("Show Balance");
+        showBalanceButton.setFont(new Font("Arial", Font.PLAIN, 20));
+        showBalanceButton.setForeground(Color.BLACK);
+        showBalanceButton.setBackground(Color.WHITE);
+        showBalanceButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                runBalace(useraccount);
+            }
+        });
+        buttonGridPanel.add(showBalanceButton);
 
         // add tanan NEW COMPONENTS sa MAIN CONTENT PANEL para ma kita sa bagong window
         // _____________________ NEW COMPOENENTS _____________________
         mainContentPanel.add(textBackgroundPanel);
         mainContentPanel.add(exitButton);
+        mainContentPanel.add(accountNumberLabel);
+        mainContentPanel.add(buttonGridPanel);
         // __________________^^^ NEW COMPOENENTS ^^^__________________
 
         backgroundPanel.add(mainContentPanel);
@@ -388,9 +444,13 @@ public class runProgram extends JFrame{
 
 
     // ========================= BALANCE WINDOW =====================
-    public void runBalace (UserAccount useraccount){
+    public void runBalace (UserAccount useraccount){ 
         backgroundPanel.removeAll();
         mainContentPanel.removeAll();
+
+        // TO DO: 
+        //  add condition para mag check sa acconunt type 
+        //  para mu display ug limit kung credit account 
         
         // ____________________ ACTION TEXT ____________________
         // Set setText()
