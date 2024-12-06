@@ -23,7 +23,7 @@ public class Login{
                     accountList.add(account);
                 }
                 catch(Exception err){
-                    err.printStackTrace();
+                    continue;
                 }
             }
             scan.close();
@@ -99,6 +99,16 @@ public class Login{
             }
         }
         System.out.println("Login failed. Please try again.");
+        return null;
+    }
+
+    public Account retrieveAccount(int accountNum){
+        ArrayList<Account> accountList = getAllAccounts();
+        for (Account account : accountList) {
+            if(account.getAccountNum() == accountNum){
+                return account;
+            }
+        }
         return null;
     }
 }

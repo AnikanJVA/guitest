@@ -31,6 +31,16 @@ public class Balance{
         return total;
     }
 
+    public double allAmountTransfer(int accountNum){
+        Transfer transfer = new Transfer(accountNum);
+        ArrayList<Transaction> transferList = transfer.getTransferList();
+        double total = 0;
+        for (Transaction transaction : transferList) {
+            total += transaction.getAmount();
+        }
+        return total;
+    }
+
     public ArrayList<Account> computeBalance(){
         Login accountsListGetter = new Login();
         ArrayList<Account> accountList = accountsListGetter.getAllAccounts();
@@ -39,7 +49,7 @@ public class Balance{
         for (Account account : accountList) {
             if(account.getType().equals("d")){
                 currentBalance = account.getBalance() + allAmountDeposit(account.getAccountNum());
-                currentBalance -= allAmountWithdraw(account.getAccountNum());
+                currentBalance -= allAmountWithdraw(account.getAccountNum()) + allAmountTransfer(account.getAccountNum());
                 account.setBalance(currentBalance);
                 continue;
             }
