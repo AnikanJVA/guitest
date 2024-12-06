@@ -16,7 +16,7 @@ public class Login{
             while(scan.hasNextLine()){
                 try{
                     Account account = new Account();
-                    account.setType(scan.next().toString());
+                    account.setType(scan.next());
                     account.setAccountNum(scan.nextInt());
                     account.setBalance(scan.nextDouble());
                     account.setLimit(scan.nextDouble());
